@@ -4,12 +4,9 @@
  * Same-origin files are fetched network-first, so editing code during development (Live Server) still shows your
  * changes while online. Fonts are cached the first time they load online, so they are not guaranteed offline before that.
  */
-const VERSION = 'smartstock-shell-v10';
+const VERSION = 'smartstock-shell-v11';
 const FONTS = 'smartstock-fonts-v1';
-const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'css/styles.css', 'css/responsive.css', 'css/print.css',
-  'js/utils.js', 'js/i18n-my.js', 'js/storage.js', 'js/audit-log.js', 'js/settings.js', 'js/inventory.js', 'js/categories.js', 'js/barcode.js', 'js/products.js', 'js/stocktake.js', 'js/payments.js', 'js/sales.js', 'js/pos.js',
-  'js/suppliers.js', 'js/customers.js', 'js/purchases.js', 'js/expenses.js', 'js/cash-management.js', 'js/charts.js', 'js/csv.js', 'js/reports.js', 'js/backup.js', 'js/notifications.js', 'js/analytics.js', 'js/pwa.js', 'js/app.js',
-  'assets/icon-192.png', 'assets/icon-512.png', 'assets/icon-maskable-512.png', 'assets/icon.svg'];
+const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'styles.css', 'print.css', 'app.js', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => Promise.all(SHELL.map((u) => c.add(u).catch(() => null)))).then(() => self.skipWaiting()));
