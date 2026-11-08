@@ -1,0 +1,36 @@
+/* Print styles: hide app chrome, print receipts/reports only */
+@media print {
+  .sidebar, .topbar, .scrim, .toasts, .btn, .btn-row, .filters, .skip-link, #modalRoot .modal-actions { display: none !important; }
+  .content-wrap { margin: 0 !important; }
+  .main { padding: 0; max-width: none; }
+  body { background: #fff; color: #000; font-size: 12px; }
+  .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  .modal-back { position: static; background: none; padding: 0; }
+  .modal { box-shadow: none; width: 100%; max-height: none; padding: 0; }
+
+  /* Receipt sizes (applied via class on the receipt container) */
+  .receipt { font-family: 'Noto Sans Myanmar', monospace; color: #000; }
+  .receipt.w58 { width: 58mm; }
+  .receipt.w80 { width: 80mm; }
+  .receipt.a4 { width: 190mm; }
+}
+
+/* Barcode label sheets */
+@media print {
+  .label-sheet { gap: 4mm; }
+  .label-sheet .label { border: 0; break-inside: avoid; }
+  .modal h2, .modal .muted { display: none; }
+}
+
+/* Receipt printing: show only the receipt */
+.no-print { }
+@media print {
+  .no-print { display: none !important; }
+  body.printing-receipt #app, body.printing-receipt .toasts { display: none !important; }
+  body.printing-receipt .modal-back { display: block; }
+  body.printing-receipt .modal h2 { display: none; }
+  body.printing-receipt .receipt-preview { background: none; padding: 0; display: block; overflow: visible; }
+  body.printing-receipt .receipt { padding: 0; }
+}
+
+@media print { .tabs, .page-head p, .notif .btn-row, .chart-tip { display: none !important; } .c-svg { max-height: 70mm; } }
